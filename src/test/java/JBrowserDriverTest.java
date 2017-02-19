@@ -33,15 +33,15 @@ public class JBrowserDriverTest {
 		driver.manage().timeouts().setScriptTimeout(timeout, TimeUnit.SECONDS);
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		driver.get("http://www.herbrand-online.de/merkur/Merkur.html?locale=en");
-		wait.until(visibilityOfElementLocated(byForTabBarItemContainingText("Home")));
+		wait.until(visibilityOfElementLocated(xpath("//span[text()='Home']")));
 
 		System.out.println("find about us tab");
-		element = wait.until(visibilityOfElementLocated(byForTabBarItemContainingText("About us")));
+		element = wait.until(visibilityOfElementLocated(xpath("//span[text()='About us']")));
 		System.out.println("switch to about us");
 		element.click();
 
 		System.out.println("find homepage tab");
-		element = wait.until(visibilityOfElementLocated(byForTabBarItemContainingText("Home")));
+		element = wait.until(visibilityOfElementLocated(xpath("//span[text()='Home']")));
 		System.out.println("switch to homepage");
 		element.click();
 
