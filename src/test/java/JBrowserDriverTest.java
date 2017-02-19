@@ -24,10 +24,10 @@ public class JBrowserDriverTest {
 	@Test
 	public void testMerkur() throws Exception {
 		WebElement element;
+		boolean log = true;
 		long timeout = 30L;
 		JBrowserDriver driver = new JBrowserDriver(
-				Settings.builder().logJavascript(true).logTrace(true).logWire(true).build());
-		WebDriverWait wait = new WebDriverWait(driver, 30L);
+				Settings.builder().logJavascript(log).logTrace(log).logWire(log).build());
 		driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(timeout, TimeUnit.SECONDS);
 		driver.manage().timeouts().setScriptTimeout(timeout, TimeUnit.SECONDS);
