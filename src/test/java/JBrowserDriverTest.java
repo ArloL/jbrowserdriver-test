@@ -4,7 +4,6 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -12,14 +11,6 @@ import com.machinepublishers.jbrowserdriver.JBrowserDriver;
 import com.machinepublishers.jbrowserdriver.Settings;
 
 public class JBrowserDriverTest {
-
-	public static String containingClass(String className) {
-		return "contains(concat(' ', normalize-space(@class), ' '), ' " + className + " ')";
-	}
-
-	public static By byForTabBarItemContainingText(String text) {
-		return xpath("//div[" + containingClass("gwt-TabBarItem") + "]//span[contains(text(), '" + text + "')]");
-	}
 
 	@Test
 	public void testMerkur() throws Exception {
