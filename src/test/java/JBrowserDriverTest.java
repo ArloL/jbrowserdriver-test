@@ -17,22 +17,25 @@ public class JBrowserDriverTest {
 		WebElement element;
 		boolean log = true;
 		long timeout = 30L;
-		JBrowserDriver driver = new JBrowserDriver(
-				Settings.builder().logJavascript(log).logTrace(log).logWire(log).build());
+		JBrowserDriver driver = new JBrowserDriver(Settings.builder()
+		    .logJavascript(log).logTrace(log).logWire(log).build());
 		driver.manage().timeouts().implicitlyWait(timeout, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(timeout, TimeUnit.SECONDS);
 		driver.manage().timeouts().setScriptTimeout(timeout, TimeUnit.SECONDS);
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
-		driver.get("http://www.herbrand-online.de/merkur/Merkur.html?locale=en");
+		driver
+		    .get("http://www.herbrand-online.de/merkur/Merkur.html?locale=en");
 		wait.until(visibilityOfElementLocated(xpath("//span[text()='Home']")));
 
 		System.out.println("find about us tab");
-		element = wait.until(visibilityOfElementLocated(xpath("//span[text()='About us']")));
+		element = wait.until(
+		    visibilityOfElementLocated(xpath("//span[text()='About us']")));
 		System.out.println("switch to about us");
 		element.click();
 
 		System.out.println("find homepage tab");
-		element = wait.until(visibilityOfElementLocated(xpath("//span[text()='Home']")));
+		element = wait
+		    .until(visibilityOfElementLocated(xpath("//span[text()='Home']")));
 		System.out.println("switch to homepage");
 		element.click();
 
